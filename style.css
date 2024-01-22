@@ -5,11 +5,13 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
+    list-style: none;
+    text-decoration: none;
 }
 
 /* Tampilan section */
 section {
-    position: absolute;
+    position: fixed;
     width: 100%;
     min-height: 100vh;
     padding: 100px;
@@ -35,25 +37,16 @@ header {
     z-index: 1;
 }
 
-img {
-    width: 45px;
-    transition: 0.5s;
-    margin-right: -10px;
+.logo img {
+    margin-top: 20px;
+    max-width: 140px;
+    height: auto;
 }
 
-header .logo {
-    position: relative;
-    color: #f7ca13;
-    font-size: 30px;
-    text-transform: lowercase;
-    text-decoration: none;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
+
 
 /* Tampilan bagian navigation */
 header .navbar {
-    margin-left: 100px;
     position: relative;
     display: flex;
 }
@@ -78,41 +71,53 @@ header .navbar li a:hover {
 }
 
 /*Tampilan bagian button sign in dan sign up */
-header .signin-btn {
-    margin-left: 210px;
+.navsign {
+    display: flex;
+    align-items: center;
+}
+
+.signin-btn {
     background: transparent;
     cursor: pointer;
-    border: 1px solid #434583;
+    border: 1px solid#434583;
     color: #434583;
     text-decoration: none;
-    padding: 6px 8px;
+    padding: 3px 5px;
     border-radius: 15px;
     font-weight: 600;
     transition: 0.5s;
+    margin-right: 3px;
 }
 
-header .signin-btn:hover {
+.signin-btn:hover {
     background: #52c280;
     border: 1px solid #52c280;
     box-shadow: 0 5px 10px rgba(0,0,0,0,1);
 }
 
-header .signup-btn {
+.signup-btn {
     background: #f7ca13;
     cursor: pointer;
     border: 1px solid #f7ca13;
     color: #434583;
     text-decoration: none;
-    padding: 6px 8px;
+    padding: 3px 5px;
     border-radius: 15px;
     font-weight: 600;
     transition: 0.5s;
 }
 
-header .signup-btn:hover {
+.signup-btn:hover {
     background: #52c280;
     border: 1px solid #52c280;
     box-shadow: 0 5px 10px rgba(0,0,0,0,1);
+}
+
+.toggle_btn {
+    color: #e5e4fa;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
 }
 
 /* Tampilan isi konten */
@@ -160,32 +165,32 @@ header .signup-btn:hover {
 }
 
 /* Tampilan footer */
-footer {
+.social {
     display: flex;
     justify-content: left;
     align-items: center;
     padding: 70px 0px;
 }
 
-footer p {
+.social p {
     color: #434583;
     font-size: 16px;
     font-weight: 500;
     padding-right: 50px;
 }
 
-footer a {
+.social a {
     position: relative;
     color: #434583;
     font-size: 25px;
     transition: 0.3s;
 }
 
-footer a:not(:last-child) {
+.social a:not(:last-child) {
     margin-right: 60px;
 }
 
-footer a:hover {
+.social a:hover {
     transform: scale(1.2);
 }
 
@@ -201,4 +206,187 @@ footer a:hover {
 .identity a {
     text-decoration: none;
     color: #434583;
+}
+
+/* Dropdown Menu */
+.dropdown_menu {
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 125px;
+    height: 0;
+    width: 300px;
+    background: #e5e4fa;
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropdown_menu.open {
+    height: 350px;
+}
+
+.dropdown_menu li {
+    padding: 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown_menu li a {
+        color: #434583;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.5s;
+    }
+    
+.dropdown_menu li a:hover {
+        color: #f7ca13;
+    }
+
+.dropdown_menu .signin-btn, .signup-btn {
+    margin: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Responsive Design */
+@media(max-width: 992px) {
+    header .navbar,
+    header .navsign {
+        display: none;
+    }
+
+    .toggle_btn {
+        display: block;
+    }
+
+    .dropdown_menu {
+        display: block;
+    }
+}
+
+@media (max-width: 1024px) {
+    .logo img {
+        margin-top: 150px;
+        max-width: 300px;
+    }
+
+    header .navbar, 
+    header .navsign {
+        display: none;
+    }
+
+    .toggle_btn {
+        margin-top: 150px;
+        display: block;
+        font-size: 2.5rem;
+    }
+
+    .dropdown_menu {
+        display: block;
+        top: 250px;
+    }
+
+    .dropdown_menu.open {
+        height: 350px;
+    }
+
+    section {
+        background-image: url(background.png);
+    }
+
+    .content h2 {
+        position: relative;
+        margin-top: 200px;
+        font-size: 80px;
+    }
+
+    .content p {
+        font-size: 25px;
+    }
+
+    .content a {
+        font-size: 30px;
+    }
+
+    .social p {
+        font-size: 30px;
+    }
+
+    .social a {
+        font-size: 2rem;
+    }
+
+}
+
+@media (max-width: 430px) {
+    .dropdown_menu {
+        left: 2rem;
+        width: unset;
+    }
+
+    .logo img {
+        margin-top: 10px;
+        max-width: 150px;
+        margin-left: -80px;
+    }
+
+    header .navbar, 
+    header .navsign {
+        display: none;
+    }
+
+    .toggle_btn {
+        margin-top: 10px;
+        display: block;
+        font-size: 1.5rem;
+        margin-right: -60px;
+    }
+
+    .dropdown_menu {
+        display: block;
+        top: 100px;
+    }
+
+    .dropdown_menu.open {
+        height: 340px;
+    }
+
+    section {
+        background-image: url(background.png);
+    }
+
+    .content h2 {
+        position: relative;
+        margin-top: 0px;
+        font-size: 30px;
+        margin-left: -80px;
+    }
+
+    .content h2 span {
+        font-size: 30px;
+    }
+
+    .content p {
+        font-size: 15px;
+        margin-left: -80px;
+    }
+
+    .content a {
+        font-size: 10px;
+        margin-left: -80px;
+    }
+
+    .social p {
+        font-size: 15px;
+        margin-left: -80px;
+    }
+
+    .social a {
+        font-size: 1rem;
+    }
+
 }
