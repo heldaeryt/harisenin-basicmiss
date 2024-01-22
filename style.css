@@ -18,7 +18,7 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background-image: url(image.png);
+    background-image: url(images/image.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -295,7 +295,7 @@ header .navbar li a:hover {
     }
 
     section {
-        background-image: url(background.png);
+        background-image: url(images/background.png);
     }
 
     .content h2 {
@@ -356,7 +356,7 @@ header .navbar li a:hover {
     }
 
     section {
-        background-image: url(background.png);
+        background-image: url(images/background.png);
     }
 
     .content h2 {
